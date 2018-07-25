@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.6"
+script:
+  - pytest
+deploy:
+  provider: lamdba
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  role: $AWS_ROLE
+  region: $AWS_REGION
+  handler_name: iot_echo.echo_handler
+  module_name: iot_echo
+  function_name: iotecho
+  zip: iot_echo.py
+  runtime: python3.6
+  publish: true
+  skip_cleanup: true
+  on:
+    branch: master

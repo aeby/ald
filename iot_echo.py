@@ -1,6 +1,7 @@
-import boto3
 import json
 import os
+
+import boto3
 
 client = boto3.client('iot-data')
 
@@ -20,7 +21,7 @@ def _check_event(event):
     return event
 
 
-def lambda_handler(event, _):
+def echo_handler(event, _):
     _check_event(event)
 
     return client.publish(
