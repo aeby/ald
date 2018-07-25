@@ -4,7 +4,7 @@ python:
 script:
   - pytest
 deploy:
-  provider: lamdba
+  provider: lambda
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   role: $AWS_ROLE
