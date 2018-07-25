@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 import boto3
 
@@ -23,6 +24,7 @@ def _check_event(event):
 
 def echo_handler(event, _):
     _check_event(event)
+    event['ts'] = int(time.time())
 
     return client.publish(
         topic=topic,
